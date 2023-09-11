@@ -10,6 +10,7 @@ const Products = (props) => {
           title='Test'
           price={6}
           description='This is a first product - amazing!'
+          id={Math.random()}
         />
       </ul>
     </section>

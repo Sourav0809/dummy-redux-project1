@@ -1,24 +1,26 @@
 import classes from './CartItem.module.css';
-
+import { IncItemAction, decItemAction } from '../../store/actions/cartActions';
+import { useDispatch } from 'react-redux';
 const CartItem = (props) => {
-  const { title, quantity, total, price } = props.item;
 
+  const dispatch = useDispatch()
   return (
     <li className={classes.item}>
       <header>
-        <h3>{title}</h3>
+        <h3>{props.title}</h3>
         <div className={classes.price}>
-          ${total.toFixed(2)}{' '}
-          <span className={classes.itemprice}>(${price.toFixed(2)}/item)</span>
+          ${props.price * props.quantity}{' '}
+          <span className={classes.itemprice}>${props.price} / Per Item</span>
         </div>
       </header>
       <div className={classes.details}>
         <div className={classes.quantity}>
-          x <span>{quantity}</span>
+          x <span>{props.quantity}</span>
         </div>
         <div className={classes.actions}>
-          <button>-</button>
-          <button>+</button>
+
+          <button onClick={() => { dispatch(IncItemAction(props.id)) }}>+</button>
+          <button onClick={() => { dispatch(decItemAction(props.id)) }}>-</button>
         </div>
       </div>
     </li>
