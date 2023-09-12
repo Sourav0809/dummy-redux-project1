@@ -1,4 +1,4 @@
-import { onAddToCartAction } from '../../store/actions/cartActions';
+import { onAddToCartAction } from '../../store/actions/cartActions'
 import Card from '../UI/Card';
 import classes from './ProductItem.module.css';
 import { useDispatch } from 'react-redux';

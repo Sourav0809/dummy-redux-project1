@@ -16,6 +16,9 @@ const cartSlice = createSlice({
         decrementItem(state, action) {
             state.cartItems = action.payload;
         },
+        fetchCartData(state, action) {
+            state.cartItems = action.payload
+        }
     },
 });
 
@@ -27,5 +30,6 @@ export const {
     onAddToCart,
     incrementItem,
     decrementItem,
+    fetchCartData
 } = cartSlice.actions;
 export default cartSlice;
